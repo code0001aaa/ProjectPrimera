@@ -347,3 +347,7 @@ ASALocalRun/
 
 # User files
 .vsls.json
+
+# Debug file.
+OngekiScoreLog/supervisord.pid
+OngekiScoreLog/supervisord.log
