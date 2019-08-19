@@ -47,7 +47,16 @@ class CacheClearCommand extends Command
         Artisan::call('view:clear');
         if($isClearCompiled){
             Artisan::call('clear-compiled');
-            $this->comment("Remember to run 'composer dump-autoload --optimize'.");
+
+            $stdout = "";
+            exec("composer dump-autoload --optimize 2>&1", $out, $status);
+            foreach ($out as $value) {
+                $stdout .= $value . "\n";
+            }
+            if ($status !== 0) {
+                throw new RuntimeException($stdout);
+            }
+            $this->comment("Run 'composer dump-autoload --optimize'.");
         }
 
         // Cache save.
