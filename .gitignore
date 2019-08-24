@@ -351,3 +351,4 @@ ASALocalRun/
 # Debug file.
 OngekiScoreLog/supervisord.pid
 OngekiScoreLog/supervisord.log
+OngekiScoreLog/public/mix-manifest.json
