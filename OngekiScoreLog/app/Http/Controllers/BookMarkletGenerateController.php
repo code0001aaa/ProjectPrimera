@@ -34,7 +34,7 @@ class BookmarkletGenerateController extends Controller
         $token = $tokenobj->accessToken;
         $token_id = $tokenobj->token->id;
         $content = config('app.url') . '/bookmarklets/main.js';
-        $content = "javascript:(function(d,s){s=d.createElement('script');s.src='" . $content . "?t=" . $token . "';d.getElementsByTagName('head')[0].appendChild(s);})(document);";
+        $content = "javascript:(function(d,s){s=d.createElement('script');s.id='ongeki_score_net';s.src='" . $content . "?t=" . $token . "';d.getElementsByTagName('head')[0].appendChild(s);})(document);";
         $content = '<p>ブックマークレットを生成しました。</p><button class="btn button is-primary" data-clipboard-target="#bookmarklet">クリップボードにコピー</button><p class="is-small">※環境やブラウザ設定によってはコピーが行えない場合があります。</p><div class="control"><textarea id="bookmarklet" class="textarea is-info is-small" type="text" readonly>' . $content . '</textarea></div></p>';
         
         return view('bookmarklet', compact('content'));
